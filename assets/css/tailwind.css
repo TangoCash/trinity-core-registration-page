@@ -592,6 +592,7 @@ video {
 
 .flex {
   display: flex;
+  flex-direction: row;
 }
 
 .grid {
@@ -611,7 +612,7 @@ video {
 }
 
 .max-w-sm {
-  max-width: 24rem;
+  /*max-width: 24rem;*/
 }
 
 .max-w-md {
@@ -1108,4 +1109,13 @@ body
   .md\:w-64 {
     width: 16rem;
   }
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index:-9001;
 }

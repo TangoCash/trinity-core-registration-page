@@ -2,7 +2,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-
+    $captcha = $_POST['captcha'];
 
 function calculateSRP6Verifier($username, $password, $salt) {
     $g = gmp_init(7);
@@ -16,13 +16,19 @@ function calculateSRP6Verifier($username, $password, $salt) {
     return $verifier;
 }
 
-function Registration($username, $password, $email)
+function Registration($username, $password, $email, $captcha)
 {
     session_start();
     include 'config.php';
 
-    if (empty($username) || empty($password) || empty($email)) {
+    if (empty($username) || empty($password) || empty($email) || empty($captcha)) {
         $_SESSION['empty'] = "Please fill all fields";
+        header("Location: ../index.php");
+        exit();
+    }
+
+    if ($_SESSION['CAPTCHA_CODE'] != $captcha) {
+        $_SESSION['capWrong'] = "Captcha is invalid";
         header("Location: ../index.php");
         exit();
     }
@@ -63,4 +69,4 @@ function Registration($username, $password, $email)
 }
 
 
-echo Registration($username, $password, $email);
+echo Registration($username, $password, $email, $captcha);

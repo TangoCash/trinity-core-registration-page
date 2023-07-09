@@ -4,7 +4,7 @@ include 'assets/checks.php';
 include 'assets/config.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <!-- META -->
@@ -20,54 +20,73 @@ include 'assets/config.php';
 </head>
 
 <body>
-    <img src="./assets/img/bg.webp" class="bg_img">
+    <img src="./assets/img/wotlk-bg.jpg" class="bg_img">
+    <video autoplay muted loop id="myVideo">
+       <source src="./assets/img/wotlk-bg.mp4" type="video/mp4">
+    </video>
     <div class="grid h-screen place-items-center">
         <div class="flex justify-center">
-            <div class="rounded-lg shadow-lg bg-white max-w-sm dark:bg-slate-800" style="width:24rem;">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm dark:bg-slate-800">
                 <div class="p-6">
-                    <h5 class="text-gray-900 text-xl font-medium mb-2 dark:text-white">Register an Account.</h5>
-                    <form action="./assets/functions.php" method="post">
+                    <div class="flex justify-center"><img src="./assets/img/wotlk-logo.png"></div>
+                    <h5 class="text-gray-900 text-xl font-medium mb-2 dark:text-white">Account erstellen</h5>
+                    <form action="./assets/functions.php" method="post" enctype="multipart/form-data">
+                      <div class='flex'>
                         <div class="mb-6">
-                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Benutzername</label>
                             <input type="text" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required>
                         </div>
-
+                        &nbsp;
                         <div class="mb-6">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
                             <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required>
                         </div>
-
+                      </div>
+                      <div class='flex'>
                         <div class="mb-6">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort</label>
                             <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" required>
                         </div>
-
+                        &nbsp;
                         <div class="mb-6">
-                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirm Password</label>
+                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort Wiederholung</label>
                             <input type="password" id="cpassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm Password" required>
                         </div>
+                      </div>
+                        <div class="mb-6">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Enter Captcha</label>
+                            <div class='flex'>
+                              <img src="./assets/captcha.php" alt="PHP Captcha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                              &nbsp;
+                              <input type="text" name="captcha" id="captcha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            </div>
+                        </div>
 
-                        <button id="regbut" type="submit" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full" disabled>Register</button>
+
+                        <button id="regbut" type="submit" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full" disabled>Anlegen</button>
                     </form>
                     <?php
                     if (isset($_SESSION['userExist'])) {
-                        echo '<span class="text-red-400">Username already exist! Choose another name!</span>';
+                        echo '<span class="text-red-400">Benutzername bereits in Verwendung! Suche dir einen anderen aus!</span>';
                         unset($_SESSION['userExist']);
                     } elseif (isset($_SESSION['emailExist'])) {
-                        echo '<span class="text-red-400">Account with this email already exist! Use another email.</span>';
+                        echo '<span class="text-red-400">Account mit dieser Email existiert bereits!</span>';
                         unset($_SESSION['emailExist']);
                     } elseif (isset($_SESSION['empty'])) {
-                        echo '<span class="text-red-400">All fields are required!</span>';
+                        echo '<span class="text-red-400">Bitte alle Felder ausfüllen!</span>';
                         unset($_SESSION['empty']);
+                    } elseif (isset($_SESSION['capWrong'])) {
+                        echo '<span class="text-red-400">Captcha falsch!</span>';
+                        unset($_SESSION['capWrong']);
                     } elseif (isset($_SESSION['success'])) {
-                        echo '<span class="text-green-400">Account Successfully Created</span>';
+                        echo '<span class="text-green-400">Account erfolgreich erstellt!</span>';
                         unset($_SESSION['success']);
                     }
                     ?>
                     <div class="mb-6"><br>
-                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"><b>REALMLIST: </b><?php 
+                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"><b>realmlist.wtf: </b><br><?php 
                             require 'assets/config.php';
-                            echo $realmlist;
+                            echo 'set realmlist '.$realmlist;
                             ?></label>
                     </div>
                     <!-- Use text-red-400 if server offline -->
