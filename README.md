@@ -1,6 +1,6 @@
 # Registration Page
 
-![Picture](https://i.imgur.com/I1L6HnQ.png)
+![Picture](https://i.postimg.cc/25N7sr3K/Bildschirmfoto-zu-2023-07-09-10-25-54.png)
 ## Features
 - Modern Responsive Design. (Works neatly with phones)
 - Made with Tailwind.
