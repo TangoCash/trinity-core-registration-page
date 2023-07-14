@@ -89,18 +89,23 @@ include 'assets/config.php';
                             echo 'set realmlist '.$realmlist;
                             ?></label>
                     </div>
+                    <div class="mb-6">
+                            <a href="https://download.wowdl.net/Clients/World-of-Warcraft-3.3.5a.12340-deDE.zip"><button class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">Download WoW 3.3.5a deutsch</button></a>
+                            &nbsp;
+                            <a href="https://legacy-wow.com/wotlk-addons/"><button class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">WoW 3.3.5a Addons</button></a>
+                    </div>
                     <!-- Use text-red-400 if server offline -->
                     <!-- Use "fa-solid fa-bolt-slash" if server offline-->
                     <div class="text-center dark:text-white"><i class="fa-solid fa-bolt text-green-400"></i> Server Status <i class="fa-solid fa-bolt text-green-400"></i></div>
-                    <div class="grid grid-cols-4 gap-2 text-center dark:text-gray-400">
+                    <div class="grid grid-cols-3 gap-2 text-center dark:text-gray-400">
                         <!-- Currently Online Players / If offline, display zero, and make icon red. -->
-                        <div><i class="fa-solid fa-user text-green-400"></i><?php echo totalOnline(); ?></div>
+                        <div>Online:<br><i class="fa-solid fa-user text-green-400"></i> <?php echo totalOnline(); ?></div>
                         <!-- Display for how many hours the server has been online. / If offline, display zero. -->
-                        <div><i class="fa-solid fa-clock text-cyan-400"></i> <?php echo uptime(); ?></span></div>
+                        <div>Uptime:<br><i class="fa-solid fa-clock text-cyan-400"></i> <?php echo uptime(); ?></span></div>
                         <!-- Amount of cheaters/hackers/dupers/whatever banned. -->
-                        <div><i class="fa-solid fa-shield-virus text-red-400"></i> <?php echo totalBan(); ?></div>
+                        <!-- <div><i class="fa-solid fa-shield-virus text-red-400"></i> <?php //echo totalBan(); ?></div> -->
                         <!-- Total Accounts or Characters registered -->
-                        <div><i class="fa-solid fa-users text-orange-400"></i> <?php echo totalAccounts(); ?></div>
+                        <div>Accounts:<br><i class="fa-solid fa-users text-orange-400"></i> <?php echo totalAccounts(); ?></div>
                     </div>
                 </div>
             </div>
