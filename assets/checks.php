@@ -31,7 +31,7 @@ function totalOnlineCh()
     require 'assets/config.php';
     $result = $DB_CH->query("SELECT * FROM characters WHERE online = 1 ORDER BY level DESC");
     while ($row = $result->fetch_assoc()) {
-        echo $row['name'].' - '. $row['level'].'<br>';
+        echo '<a href="armory.php?charid='.$row['guid'].'">'.$row['name'].' - '. $row['level'].'</a><br>';
     }
 }
 

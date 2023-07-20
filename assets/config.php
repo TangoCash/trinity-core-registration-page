@@ -2,6 +2,7 @@
 // General Configuation
 $title = 'Server Name';
 $realmlist = 'logon.server.com';
+$linksite = 'https://www.wowhead.com/wotlk/de/item=';
 
 // Database Information
 $host = "localhost"; // Host IP or localhost
