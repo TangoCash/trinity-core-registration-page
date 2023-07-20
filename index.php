@@ -99,7 +99,7 @@ include 'assets/config.php';
                     <div class="text-center dark:text-white"><i class="fa-solid fa-bolt text-green-400"></i> Server Status <i class="fa-solid fa-bolt text-green-400"></i></div>
                     <div class="grid grid-cols-3 gap-2 text-center dark:text-gray-400">
                         <!-- Currently Online Players / If offline, display zero, and make icon red. -->
-                        <div>Online:<br><i class="fa-solid fa-user text-green-400"></i> <?php echo totalOnline(); ?></div>
+                        <div>Online:<br><i class="fa-solid fa-user text-green-400"></i> <?php echo totalOnline(); ?><br><?php totalOnlineCh(); ?></div>
                         <!-- Display for how many hours the server has been online. / If offline, display zero. -->
                         <div>Uptime:<br><i class="fa-solid fa-clock text-cyan-400"></i> <?php echo uptime(); ?></span></div>
                         <!-- Amount of cheaters/hackers/dupers/whatever banned. -->
