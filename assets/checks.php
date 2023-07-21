@@ -35,6 +35,15 @@ function totalOnlineCh()
     }
 }
 
+function totalCh()
+{
+    require 'assets/config.php';
+    $result = $DB_CH->query("SELECT * FROM characters ORDER BY level DESC");
+    while ($row = $result->fetch_assoc()) {
+        echo '<a href="armory.php?charid='.$row['guid'].'">'.$row['name'].' - '. $row['level'].'</a><br>';
+    }
+}
+
 function totalBan()
 {
     require 'assets/config.php';
