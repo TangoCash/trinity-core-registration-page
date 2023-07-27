@@ -8,7 +8,9 @@ include 'assets/config.php';
 
 <head>
     <!-- META -->
-    <title><?php echo $title  ?></title>
+    <title>
+        <?php echo $title ?>
+    </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +24,7 @@ include 'assets/config.php';
 <body>
     <img src="./assets/img/wotlk-bg.jpg" class="bg_img">
     <video autoplay muted loop id="myVideo">
-       <source src="./assets/img/wotlk-bg.mp4" type="video/mp4">
+        <source src="./assets/img/wotlk-bg.mp4" type="video/mp4">
     </video>
     <div class="grid h-screen place-items-center">
         <div class="flex justify-center">
@@ -31,39 +33,58 @@ include 'assets/config.php';
                     <div class="flex justify-center"><img src="./assets/img/wotlk-logo.png"></div>
                     <h5 class="text-gray-900 text-xl font-medium mb-2 dark:text-white">Account erstellen</h5>
                     <form action="./assets/functions.php" method="post" enctype="multipart/form-data">
-                      <div class='flex'>
-                        <div class="mb-6">
-                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Benutzername</label>
-                            <input type="text" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benutzername" required>
+                        <div class='flex'>
+                            <div class="mb-6">
+                                <label for="username"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Benutzername</label>
+                                <input type="text" name="username"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Benutzername" required>
+                            </div>
+                            &nbsp;
+                            <div class="mb-6">
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                                <input type="email" name="email"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Email" required>
+                            </div>
                         </div>
-                        &nbsp;
-                        <div class="mb-6">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
-                            <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required>
+                        <div class='flex'>
+                            <div class="mb-6">
+                                <label for="password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort</label>
+                                <input type="password" id="password" name="password"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Passwort" required>
+                            </div>
+                            &nbsp;
+                            <div class="mb-6">
+                                <label for="cpassword"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort
+                                    Wiederholung</label>
+                                <input type="password" id="cpassword"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Passwort Wiederholung" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class='flex'>
                         <div class="mb-6">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort</label>
-                            <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Passwort" required>
-                        </div>
-                        &nbsp;
-                        <div class="mb-6">
-                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Passwort Wiederholung</label>
-                            <input type="password" id="cpassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Passwort Wiederholung" required>
-                        </div>
-                      </div>
-                        <div class="mb-6">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Captcha</label>
+                            <label
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Captcha</label>
                             <div class='flex'>
-                              <img src="./assets/captcha.php" alt="PHP Captcha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
-                              &nbsp;
-                              <input type="text" name="captcha" id="captcha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <img src="./assets/captcha.php" alt="PHP Captcha"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                                &nbsp;
+                                <input type="text" name="captcha" id="captcha"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
                             </div>
                         </div>
 
 
-                        <button id="regbut" type="submit" class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full" disabled>Anlegen</button>
+                        <button id="regbut" type="submit"
+                            class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full"
+                            disabled>Anlegen</button>
                     </form>
                     <?php
                     if (isset($_SESSION['userExist'])) {
@@ -84,28 +105,44 @@ include 'assets/config.php';
                     }
                     ?>
                     <div class="mb-6"><br>
-                            <label for="cpassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"><b>realmlist.wtf: </b><br><?php 
+                        <label for="cpassword"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"><b>realmlist.wtf:
+                            </b><br>
+                            <?php
                             require 'assets/config.php';
-                            echo 'set realmlist '.$realmlist;
-                            ?></label>
+                            echo 'set realmlist ' . $realmlist;
+                            ?>
+                        </label>
                     </div>
                     <div class="mb-6">
-                            <a href="https://download.wowdl.net/Clients/World-of-Warcraft-3.3.5a.12340-deDE.zip"><button class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">Download WoW 3.3.5a deutsch</button></a>
-                            &nbsp;
-                            <a href="https://legacy-wow.com/wotlk-addons/"><button class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">WoW 3.3.5a Addons</button></a>
+                        <a href="https://download.wowdl.net/Clients/World-of-Warcraft-3.3.5a.12340-deDE.zip"><button
+                                class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">Download
+                                WoW 3.3.5a deutsch</button></a>
+                        &nbsp;
+                        <a href="https://legacy-wow.com/wotlk-addons/"><button
+                                class="inline-block px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out w-full">WoW
+                                3.3.5a Addons</button></a>
                     </div>
                     <!-- Use text-red-400 if server offline -->
                     <!-- Use "fa-solid fa-bolt-slash" if server offline-->
-                    <div class="text-center dark:text-white"><i class="fa-solid fa-bolt text-green-400"></i> Server Status <i class="fa-solid fa-bolt text-green-400"></i></div>
+                    <div class="text-center dark:text-white"><i class="fa-solid fa-bolt text-green-400"></i> Server
+                        Status <i class="fa-solid fa-bolt text-green-400"></i></div>
                     <div class="grid grid-cols-3 gap-2 text-center dark:text-gray-400">
                         <!-- Currently Online Players / If offline, display zero, and make icon red. -->
-                        <div>Online:<br><i class="fa-solid fa-user text-green-400"></i> <?php echo totalOnline(); ?><br><?php totalOnlineCh(); ?></div>
+                        <div>Online:<br><i class="fa-solid fa-user text-green-400"></i>
+                            <?php echo totalOnline(); ?><br>
+                            <?php totalOnlineCh(); ?>
+                        </div>
                         <!-- Display for how many hours the server has been online. / If offline, display zero. -->
-                        <div>Uptime:<br><i class="fa-solid fa-clock text-cyan-400"></i> <?php echo uptime(); ?></span></div>
+                        <div>Uptime:<br><i class="fa-solid fa-clock text-cyan-400"></i>
+                            <?php echo uptime(); ?></span>
+                        </div>
                         <!-- Amount of cheaters/hackers/dupers/whatever banned. -->
                         <!-- <div><i class="fa-solid fa-shield-virus text-red-400"></i> <?php //echo totalBan(); ?></div> -->
                         <!-- Total Accounts or Characters registered -->
-                        <div>Accounts:<br><i class="fa-solid fa-users text-orange-400"></i> <?php echo totalAccounts(); ?></div>
+                        <div>Accounts:<br><i class="fa-solid fa-users text-orange-400"></i>
+                            <?php echo totalAccounts(); ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,7 +151,7 @@ include 'assets/config.php';
     </div>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // timer
             function engageTimer() {
                 var serverStart = 1658479760; //Get server start time from DB
@@ -135,7 +172,7 @@ include 'assets/config.php';
             engageTimer();
             setInterval(engageTimer, 3000)
             // Password confirmation, makes sure the password match!
-            $("#password, #cpassword").keyup(function() {
+            $("#password, #cpassword").keyup(function () {
                 if ($("#password").val() == $("#cpassword").val()) {
                     $("#password").addClass("dark:border-green-600 border-green-600");
                     $("#cpassword").addClass("dark:border-green-600 border-green-600");

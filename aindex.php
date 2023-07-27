@@ -8,7 +8,9 @@ include 'assets/config.php';
 
 <head>
     <!-- META -->
-    <title><?php echo $title  ?></title>
+    <title>
+        <?php echo $title ?>
+    </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +24,7 @@ include 'assets/config.php';
 <body>
     <img src="./assets/img/wotlk-bg.jpg" class="bg_img">
     <video autoplay muted loop id="myVideo">
-       <source src="./assets/img/wotlk-bg.mp4" type="video/mp4">
+        <source src="./assets/img/wotlk-bg.mp4" type="video/mp4">
     </video>
     <div class="grid h-screen place-items-center">
         <div class="flex justify-center">

@@ -22,7 +22,7 @@ if ($charid != null) {
 		// Perform Mainhand Item Queries
 
 		//Gets Char inventory Slot Items id
-		if ($itemresult = mysqli_query($DB_CH,"SELECT * FROM character_inventory WHERE guid = $charid AND bag = 0 AND slot = $x")) {
+		if ($itemresult = mysqli_query($DB_CH, "SELECT * FROM character_inventory WHERE guid = $charid AND bag = 0 AND slot = $x")) {
 			while ($itemrow = mysqli_fetch_assoc($itemresult)) {
 				$item_instance = $itemrow["item"];
 
@@ -37,7 +37,7 @@ if ($charid != null) {
 						$item_id = $itemrow["itemEntry"];
 
 						//Get the Item_Template item and item displayid
-						if ( $itemresult = mysqli_query($DB_W,"SELECT * FROM item_template WHERE entry = $item_id") ) {
+						if ($itemresult = mysqli_query($DB_W, "SELECT * FROM item_template WHERE entry = $item_id")) {
 							while ($itemrow = mysqli_fetch_assoc($itemresult)) {
 								$item_name = $itemrow["name"];
 								$item_icon_id = $itemrow["displayid"];
@@ -151,7 +151,7 @@ if ($charid != null) {
 		}
 	} // for
 
-	if ( $stats_result = mysqli_query($DB_CH,"SELECT * FROM characters WHERE guid=" . $charid) ) {
+	if ($stats_result = mysqli_query($DB_CH, "SELECT * FROM characters WHERE guid=" . $charid)) {
 		while ($row = mysqli_fetch_assoc($stats_result)) {
 			$info_name = $row["name"];
 			$info_race = $row["race"];
@@ -168,19 +168,23 @@ if ($charid != null) {
 
 ?>
 <style>
-	.stats-bg-image{
+	.stats-bg-image {
 		background-image: url("./assets/img/statbg/<?php echo $info_race . "_" . $info_gender . "_" . $info_class; ?>.jpg");
 		background-size: 100% 100%;
 	}
-	.sizeform{
-		width:200px;
+
+	.sizeform {
+		width: 200px;
 	}
 </style>
 
 <html>
+
 <head>
 	<!-- META -->
-	<title><?php echo $title; ?></title>
+	<title>
+		<?php echo $title; ?>
+	</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -191,9 +195,10 @@ if ($charid != null) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 	<link rel="stylesheet" href="./assets/css/equipment.css">
 	<link rel="stylesheet" href="./assets/css/tooltip.css">
-	<script>const whTooltips = {colorLinks: true, iconizeLinks: false, renameLinks: false};</script>
+	<script>const whTooltips = { colorLinks: true, iconizeLinks: false, renameLinks: false };</script>
 	<script src="https://wow.zamimg.com/widgets/power.js"></script>
 </head>
+
 <body>
 	<img src="./assets/img/wotlk-bg.jpg" class="bg_img">
 	<video autoplay muted loop id="myVideo">
@@ -206,18 +211,19 @@ if ($charid != null) {
 				<div class="flex justify-center">
 					<div style="white-space: nowrap;color: white;font-weight: bold;">
 						<form method="post" action="armory.php">
-						<label for="Characters">Choose a Character:&nbsp;</label>
-						<select name="charid" id="Characters" style="background: #0000;border: 1px solid;" onChange="document.getElementById('container').innerHTML='';submit();">
-							<!-- Add Load Character List PHP Here -->
-							<?php
-								if ($result = mysqli_query($DB_CH,"SELECT * FROM characters ORDER BY name ASC") ) {
+							<label for="Characters">Choose a Character:&nbsp;</label>
+							<select name="charid" id="Characters" style="background: #0000;border: 1px solid;"
+								onChange="document.getElementById('container').innerHTML='';submit();">
+								<!-- Add Load Character List PHP Here -->
+								<?php
+								if ($result = mysqli_query($DB_CH, "SELECT * FROM characters ORDER BY name ASC")) {
 									while ($row = mysqli_fetch_assoc($result)) {
 										echo "<option value=" . $row["guid"] . " " . ($row["guid"] == $charid ? "selected" : "") . ">" . $row["name"] . "</option>";
 									}
 								}
 								mysqli_free_result($result);
-							?>
-						</select>
+								?>
+							</select>
 						</form>
 					</div>
 				</div>
@@ -239,8 +245,14 @@ if ($charid != null) {
 							</div>
 							<div class="grid-item-main main-item-name">
 								<div class="grid-container-main-info">
-									<div class="grid-item-main-info-name"><?php echo $info_name; ?></div>
-									<div class="grid-item-main-info"><?php if ($info_level != null) { echo "Level " . $info_level;} ?></div>
+									<div class="grid-item-main-info-name">
+										<?php echo $info_name; ?>
+									</div>
+									<div class="grid-item-main-info">
+										<?php if ($info_level != null) {
+											echo "Level " . $info_level;
+										} ?>
+									</div>
 								</div>
 							</div>
 							<div class="grid-item-main main-item-class tooltip">
@@ -385,4 +397,5 @@ mysqli_free_result($itemresult);
 mysqli_close($DB_CH);
 mysqli_close($DB_W);
 ?>
+
 </html>

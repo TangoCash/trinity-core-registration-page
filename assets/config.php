@@ -15,18 +15,15 @@ $DB = mysqli_connect($host, $user, $pass, $database_auth);
 $DB_CH = mysqli_connect($host, $user, $pass, $database_characters);
 $DB_W = mysqli_connect($host, $user, $pass, $database_world);
 
-if(!$DB)
-{
-    echo "Auth Connection Error:". mysqli_connect_error();
+if (!$DB) {
+    echo "Auth Connection Error:" . mysqli_connect_error();
 }
 
-if(!$DB_CH)
-{
-    echo "Characters Connection Error:". mysqli_connect_error();
+if (!$DB_CH) {
+    echo "Characters Connection Error:" . mysqli_connect_error();
 }
 
-if(!$DB_W)
-{
-    echo "World Connection Error:". mysqli_connect_error();
+if (!$DB_W) {
+    echo "World Connection Error:" . mysqli_connect_error();
 }
 ?>

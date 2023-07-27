@@ -31,7 +31,7 @@ function totalOnlineCh()
     require 'assets/config.php';
     $result = $DB_CH->query("SELECT * FROM characters WHERE online = 1 ORDER BY level DESC");
     while ($row = $result->fetch_assoc()) {
-        echo '<a href="armory.php?charid='.$row['guid'].'">'.$row['name'].' - '. $row['level'].'</a><br>';
+        echo '<a href="armory.php?charid=' . $row['guid'] . '">' . $row['name'] . ' - ' . $row['level'] . '</a><br>';
     }
 }
 
@@ -40,7 +40,7 @@ function totalCh()
     require 'assets/config.php';
     $result = $DB_CH->query("SELECT * FROM characters ORDER BY level DESC");
     while ($row = $result->fetch_assoc()) {
-        echo '<a href="armory.php?charid='.$row['guid'].'">'.$row['name'].' - '. $row['level'].'</a><br>';
+        echo '<a href="armory.php?charid=' . $row['guid'] . '">' . $row['name'] . ' - ' . $row['level'] . '</a><br>';
     }
 }
 
@@ -66,37 +66,38 @@ function uptime()
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $uptimetime = time() - $row['starttime'];
-        $uptime =  format_uptime($uptimetime);
+        $uptime = format_uptime($uptimetime);
         return $uptime;
     } else {
         return 0;
     }
 }
 
-function format_uptime($seconds) {
-      $secs  = intval($seconds % 60);
-      $mins  = intval($seconds / 60 % 60);
-      $hours = intval($seconds / 3600 % 24);
-      $days  = intval($seconds / 86400);
+function format_uptime($seconds)
+{
+    $secs = intval($seconds % 60);
+    $mins = intval($seconds / 60 % 60);
+    $hours = intval($seconds / 3600 % 24);
+    $days = intval($seconds / 86400);
 
-      $uptimeString='';
+    $uptimeString = '';
 
-      if ($days) {
-         $uptimeString .= $days;
-         $uptimeString .= ((1 === $days) ? ' Tag' : ' Tage');
-      }
-      if ($hours) {
-         $uptimeString .= ((0 < $days) ? ', ' : '').$hours;
-         $uptimeString .= ((1 === $hours) ? ' Std' : ' Std');
-      }
-      if ($mins) {
-         $uptimeString .= ((0 < $days || 0 < $hours) ? ', ' : '').$mins;
-         $uptimeString .= ((1 === $mins) ? ' min' : ' min');
-      }
-      if ($secs) {
-         $uptimeString .= ((0 < $days || 0 < $hours || 0 < $mins) ? ', ' : '').$secs;
-         $uptimeString .= ((1 === $secs) ? ' s' : ' s');
-      }
-      return $uptimeString;
+    if ($days) {
+        $uptimeString .= $days;
+        $uptimeString .= ((1 === $days) ? ' Tag' : ' Tage');
+    }
+    if ($hours) {
+        $uptimeString .= ((0 < $days) ? ', ' : '') . $hours;
+        $uptimeString .= ((1 === $hours) ? ' Std' : ' Std');
+    }
+    if ($mins) {
+        $uptimeString .= ((0 < $days || 0 < $hours) ? ', ' : '') . $mins;
+        $uptimeString .= ((1 === $mins) ? ' min' : ' min');
+    }
+    if ($secs) {
+        $uptimeString .= ((0 < $days || 0 < $hours || 0 < $mins) ? ', ' : '') . $secs;
+        $uptimeString .= ((1 === $secs) ? ' s' : ' s');
+    }
+    return $uptimeString;
 }
 ?>
